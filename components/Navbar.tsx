@@ -21,10 +21,10 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between p-4">
       {/* LEFT */}
-      {/* <SidebarTrigger /> */}
-      <Button variant="outline" onClick={toggleSidebar}>
+      <SidebarTrigger />
+      {/* <Button variant="outline" onClick={toggleSidebar}>
         Custom Button
-      </Button>
+      </Button> */}
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href={"/"}>Dashboard</Link>
