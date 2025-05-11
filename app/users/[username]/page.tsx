@@ -1,4 +1,5 @@
 import CardList from "@/components/CardList";
+import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +15,11 @@ import {
 } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import EditUser from "@/components/EditUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AppLineChart from "@/components/AppLineChart";
 
 const SingleUserPage = () => {
   return (
@@ -102,17 +108,47 @@ const SingleUserPage = () => {
           </div>
           {/* INFORMATION CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <h1 className="text-xl font-semibold">User Information</h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-xl font-semibold">User Information</h1>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Edit User</Button>
+                </SheetTrigger>
+                <EditUser />
+              </Sheet>
+            </div>
+
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
                 <p className="text-sm text-muted-foreground">
                   Profile completion
                 </p>
-                <Progress value={33} />
+                <Progress value={63} />
               </div>
-              <span className="">Username</span>
-              <span>jhon.doe</span>
+              <div className="flex items-center gap-2">
+                <span className="font-bold">Username:</span>
+                <span>jhon.doe</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold">Email:</span>
+                <span>jhon.doe@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold">Phone:</span>
+                <span>+12 345 6789</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold">Location:</span>
+                <span>New York</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold">Role:</span>
+                <Badge>Admin</Badge>
+              </div>
             </div>
+            <p className="text-sm text-muted-foreground mt-4">
+              Joined on 2025.01.01
+            </p>
           </div>
           {/* CARD LIST CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
@@ -122,9 +158,25 @@ const SingleUserPage = () => {
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
           {/* USER CARD CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">John Doe</h1>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
+              laborum officiis facere nulla incidunt eos animi sunt impedit
+              illum soluta ratione ad aperiam, magnam officia quos maiores quas
+              expedita saepe!
+            </p>
+          </div>
           {/* CHART CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+          <div className="bg-primary-foreground p-4 rounded-lg">
+            <AppLineChart />
+          </div>
         </div>
       </div>
     </div>
